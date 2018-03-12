@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Field } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 
 import EventTypeInput from './EventTypeInput';
@@ -31,4 +31,12 @@ class EventForm extends Component {
     }
 }
 
-export default EventForm;
+EventForm = connect(
+    state => ({
+        types: 1
+    })
+)(EventForm);
+
+export default reduxForm({
+    form: 'eventForm'
+})(EventForm);
